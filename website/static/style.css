@@ -1,0 +1,275 @@
+
+* {
+    font-family: 'Sora', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar{
+    box-shadow: 0px 8px 8px -6px rgba(0,0,0,.5);
+    }
+
+.nav {
+    min-width: 600px;
+    display: flex;
+    justify-content: space-around;
+    float: right;
+}
+
+img.icon {
+    min-width: 6%;
+    height: 40px;
+    position: relative;
+    top: -5px;
+}
+
+.main-image {
+    background-image: linear-gradient(rgba(120, 109, 109, 0.577), rgba(168, 143, 143, 0.386)), url('/static/images/bookshelf.jpg');
+    background-size: 1000px;
+    height: 100vh;
+}
+
+.search-container {
+    position: relative; 
+    top: -90px;
+}
+
+.search-header {
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(240, 240, 240);
+}
+
+.nav-item {
+    border: solid 1px #e2e0e0;
+}
+
+.nav-link {
+    border-radius: 2px 2px 2px 2px;
+    color:rgb(110, 110, 110);
+    position: relative;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    background-color: #73605F;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s ease;
+    
+}
+
+
+.nav-link:hover {
+    color: rgb(78, 78, 78);
+}
+
+
+a.nav-link:hover::after{
+    width: 100%;
+    
+}
+
+.active::after {
+    content: "";
+    position: absolute;
+    background-color: #73605F;
+    height: 3px;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+}
+
+
+
+/* 
+.nav-link:hover::before {
+    content: '';
+    position: absolute;
+    display: block;
+    max-width:100%;
+    height: 12px;
+    background-color: red;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 45px;
+}
+ */
+
+.search{
+    position: relative;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+      
+}
+
+.search input{
+    width: 400px;
+    height: 40px;
+    text-indent: 10px;
+    border: 2px solid #d6d4d4;
+}
+
+.form-group {
+    display: flex;
+}
+
+.book-list {
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-padding: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+.book-info {
+    height: 100%;
+    line-height: 1.7;
+    padding: 15px;
+    font-size: 1em;
+    text-align: left;
+}
+
+.book-title {
+    font-size: 20px;
+}
+@media screen and (min-width: 768px) {
+.results-container {
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:30px;
+    margin-bottom: 20px;
+}}
+
+.book {
+    box-shadow: 0 0 3px rgb(154, 154, 154);
+    display: flex;
+    background-color: #fafafa;
+    min-width: 500px;
+    margin-bottom: 10px;
+}
+
+.book-cover .img {
+    width: 100%;
+    display: block;
+}
+
+.info{
+    margin: 30px 0;
+}
+
+.card-text {
+    font-weight: 600;
+}
+
+.results-container {
+    padding: 0 20px;
+    margin-top: 35px;
+}
+
+.cover {
+    width: 200px;
+    height: 300px;
+}
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    height: 100%;
+    width:100%;
+    top: 0;
+    left: 0;
+    border: 2px solid black;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 500;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out ;
+    /* transition: 200ms ease-in-out;
+    border: solid 1px black;
+    z-index: 10;
+    background-color: white; */
+    pointer-events: none;
+    overflow-y: initial;
+    min-height: auto;
+}
+
+
+.modal .modal-content {
+    background-color: white;
+    width: 1000px;
+    max-width: 80%;
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    overflow-y: auto;
+}
+
+.modal .modal-header {
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+    margin: 0;
+    font-size: 1.25rem;
+    position: fixed;
+}
+
+.modal-header .modal-close-button {
+    cursor: pointer;
+    border: none; 
+    outline: none;
+    background: none;
+    font-family: 1.25rem;
+    font-weight: bold;
+}
+
+.modal .modal-body {
+    padding: 15px;
+    font-size: 16px;
+    margin: 0 0 15px; 
+    display: inline-block;
+}
+
+.modal .modal-body .modal-img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.modal .modal-body .modal-book-title {
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+
+.modal .modal-body .modal-info {
+    display: block;
+    line-height: 3.5;
+
+}
+
+.modal .modal-body .modal-desc {
+    line-height: 2;
+}
+
+.modal .modal-footer .add-book {
+    height: 38px;
+}

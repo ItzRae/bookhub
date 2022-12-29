@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+    <form action="{{url_for('auth.login')}}" method="post" class="g-3 pt-5">
+        <div class="mb-3">
+            <div class="fs-4 fw-light ms-1">Login</div>
+        </div>
+        <div class="mb-3 p-2">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="email" name="email" placeholder="Email Address" type="text" aria-required="">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="mb-3">
+            Don't have an account? <span><a href="{{url_for('auth.register')}}">Create an account.</a></span>
+        </div>
+        <button class=" btn btn-primary btn-dark" type="submit">Log In</button>
+    </form>
+    
+{% endblock %}
